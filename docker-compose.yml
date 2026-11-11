@@ -1,0 +1,60 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: course_mgmt_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-course_management}
+      POSTGRES_USER: ${POSTGRES_USER:-admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-secret123}
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./src/sql/001_schema.sql:/docker-entrypoint-initdb.d/001_schema.sql:ro
+      - ./src/sql/002_views.sql:/docker-entrypoint-initdb.d/002_views.sql:ro
+      - ./src/sql/003_functions.sql:/docker-entrypoint-initdb.d/003_functions.sql:ro
+      - ./src/sql/004_procedures.sql:/docker-entrypoint-initdb.d/004_procedures.sql:ro
+      - ./src/sql/005_triggers.sql:/docker-entrypoint-initdb.d/005_triggers.sql:ro
+      - ./src/sql/006_indexes.sql:/docker-entrypoint-initdb.d/006_indexes.sql:ro
+      - ./src/sql/007_seed.sql:/docker-entrypoint-initdb.d/007_seed.sql:ro
+      - ./src/sql/008_nosql_benchmark_indexes.sql:/docker-entrypoint-initdb.d/008_nosql_benchmark_indexes.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-admin} -d ${POSTGRES_DB:-course_management}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  mongodb:
+    image: mongo:7
+    container_name: course_mgmt_mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    container_name: course_mgmt_redis
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  pgdata:
+  mongodb_data:
+  redis_data:

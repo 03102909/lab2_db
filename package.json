@@ -1,0 +1,31 @@
+{
+  "name": "course-management-nosql-lab",
+  "version": "2.0.0",
+  "description": "SQL and NoSQL comparison for a course management system",
+  "license": "ISC",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "test": "tsx --test tests/course-management.test.ts",
+    "lab:seed": "node scripts/lab.js seed",
+    "lab:sync": "node scripts/lab.js sync",
+    "lab:redis": "node scripts/lab.js redis",
+    "lab:benchmark": "node scripts/lab.js benchmark",
+    "lab:all": "node scripts/lab.js all"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "mongodb": "^6.18.0",
+    "pg": "^8.16.3",
+    "redis": "^5.5.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "@types/pg": "^8.15.4",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}

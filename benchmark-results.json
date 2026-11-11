@@ -1,0 +1,122 @@
+{
+  "generated_at": "2026-11-11T22:53:01.555Z",
+  "results": [
+    {
+      "dataset_courses": 50,
+      "dataset_modules": 400,
+      "dataset_lessons": 4000,
+      "engine": "PostgreSQL (3 tables + nested JSON)",
+      "iterations": 300,
+      "avg_ms": 0.768,
+      "median_ms": 0.657,
+      "p95_ms": 0.73,
+      "min_ms": 0.6024,
+      "max_ms": 19.6185,
+      "ops_per_second": 1301.61
+    },
+    {
+      "dataset_courses": 50,
+      "dataset_modules": 400,
+      "dataset_lessons": 4000,
+      "engine": "MongoDB (embedded document)",
+      "iterations": 300,
+      "avg_ms": 0.3189,
+      "median_ms": 0.3031,
+      "p95_ms": 0.4023,
+      "min_ms": 0.2596,
+      "max_ms": 0.499,
+      "ops_per_second": 3134.55
+    },
+    {
+      "dataset_courses": 50,
+      "dataset_modules": 400,
+      "dataset_lessons": 4000,
+      "engine": "Redis (JSON cache)",
+      "iterations": 300,
+      "avg_ms": 0.1565,
+      "median_ms": 0.1541,
+      "p95_ms": 0.1748,
+      "min_ms": 0.1386,
+      "max_ms": 0.3798,
+      "ops_per_second": 6383.56
+    },
+    {
+      "dataset_courses": 200,
+      "dataset_modules": 1600,
+      "dataset_lessons": 16000,
+      "engine": "PostgreSQL (3 tables + nested JSON)",
+      "iterations": 300,
+      "avg_ms": 0.6731,
+      "median_ms": 0.651,
+      "p95_ms": 0.7493,
+      "min_ms": 0.5902,
+      "max_ms": 2.3257,
+      "ops_per_second": 1485.31
+    },
+    {
+      "dataset_courses": 200,
+      "dataset_modules": 1600,
+      "dataset_lessons": 16000,
+      "engine": "MongoDB (embedded document)",
+      "iterations": 300,
+      "avg_ms": 0.2936,
+      "median_ms": 0.2797,
+      "p95_ms": 0.3603,
+      "min_ms": 0.2315,
+      "max_ms": 0.9143,
+      "ops_per_second": 3404.69
+    },
+    {
+      "dataset_courses": 200,
+      "dataset_modules": 1600,
+      "dataset_lessons": 16000,
+      "engine": "Redis (JSON cache)",
+      "iterations": 300,
+      "avg_ms": 0.1573,
+      "median_ms": 0.1537,
+      "p95_ms": 0.1763,
+      "min_ms": 0.1382,
+      "max_ms": 0.666,
+      "ops_per_second": 6352.05
+    },
+    {
+      "dataset_courses": 500,
+      "dataset_modules": 4000,
+      "dataset_lessons": 40000,
+      "engine": "PostgreSQL (3 tables + nested JSON)",
+      "iterations": 300,
+      "avg_ms": 0.6545,
+      "median_ms": 0.6497,
+      "p95_ms": 0.7065,
+      "min_ms": 0.5936,
+      "max_ms": 0.9167,
+      "ops_per_second": 1527.43
+    },
+    {
+      "dataset_courses": 500,
+      "dataset_modules": 4000,
+      "dataset_lessons": 40000,
+      "engine": "MongoDB (embedded document)",
+      "iterations": 300,
+      "avg_ms": 0.2729,
+      "median_ms": 0.266,
+      "p95_ms": 0.3249,
+      "min_ms": 0.2312,
+      "max_ms": 0.3674,
+      "ops_per_second": 3662.31
+    },
+    {
+      "dataset_courses": 500,
+      "dataset_modules": 4000,
+      "dataset_lessons": 40000,
+      "engine": "Redis (JSON cache)",
+      "iterations": 300,
+      "avg_ms": 0.1517,
+      "median_ms": 0.15,
+      "p95_ms": 0.1642,
+      "min_ms": 0.139,
+      "max_ms": 0.2057,
+      "ops_per_second": 6588.04
+    }
+  ]
+}
